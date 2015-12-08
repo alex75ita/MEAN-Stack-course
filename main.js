@@ -18,12 +18,11 @@ function run(showDataCallback) {
 			process.exit(1);		
 		}
 		
-		var person = entities.Person("Alessandro");		
-		var item = entities.Item(new Date(), person);
-		item.kind("holiday");
-		item.hours(8);
-		
-		console.log(item);
+		var person = entities.Person("Alessandro");	
+		var date = new Date(2015, 12, 6);	
+		var item = entities.Item(date, person);
+		item.kind = "permit";
+		item.hours = 4;
 			
 		db.collection("items").insert(item, 
 			function(error, result) {

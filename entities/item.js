@@ -1,33 +1,31 @@
 function Item(date, person) {
-	_date = date || new Date();
+	_insertDate = new Date();
+	_date = date;
 	_person = person;
 	_kind = "holiday";
-	hours = 0;
+	_hours = 0;
 
 	item = {
-		date: function (date) {
-			if (date)
-				_date = date;
-			else
-				return _date;
+		insertDate: _insertDate,
+		date: _date,
+		person: _person,
+		kind: _kind,
+		hours: _hours,
+		
+		setDate: function (date) {
+			_date = date;
 		},
-		person: function (person) {
-			if (person)
-				_person = person;
-			else
-				return _person
+		
+		setPerson: function (person) {
+			_person = person;
 		},
-		kind: function (kind) {
-			if (kind)
-				_kind = kind;
-			else
-				return _kind
+		
+		setKind: function (kind) {			
+			_kind = kind;
 		},
-		hours: function(hours) {
-			if (hours)
-				_hours = hours;
-			else
-				return _hours;
+		
+		setHours: function(hours) {
+			_hours = hours;			
 		}
 	};
 

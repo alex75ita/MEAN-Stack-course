@@ -5,11 +5,13 @@ function Person(name) {
 	var _name = name || "undefined";
 	
 	return {	
-		name:function(name) {
+		name: _name,
+		
+		setName: function(name) {
 			if(name)
 				_name = name;
 			else
-				return _name;		
+				throw(Error('"name" must be defined'));		
 		}	
 	}
 };
