@@ -1,3 +1,3 @@
-npm install
+start npm install
 
 pause

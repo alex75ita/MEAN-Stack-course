@@ -7,5 +7,9 @@
 	"scripts": {
 		"test": "mocha tests\\*",
 		"test-dot": "mocha -R dot tests\\*"		
+	},
+	"devDependencies": {
+		"gulp": "^3.9.0",
+		"gulp-mocha": "*"		
 	}
 }
