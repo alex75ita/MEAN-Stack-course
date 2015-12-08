@@ -5,7 +5,7 @@
 		"mocha": "^2.3.4"
 	},
 	"scripts": {
-		"test": "mocha tests\\*",
+		"test": "mocha **\\*_test.js",
 		"test-dot": "mocha -R dot tests\\*",
 		"watch": "gulp watch"
 	},

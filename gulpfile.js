@@ -22,5 +22,5 @@ gulp.task("test-dot", function() {
 });
 
 gulp.task("watch", function() {
-	gulp.watch("./**/*.js", ["test-dot"]);
+	gulp.watch("./**/*.js", ["test"]);	
 });
