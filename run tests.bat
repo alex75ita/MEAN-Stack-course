@@ -3,4 +3,7 @@
 .echo "-g '<regex>'"
 .echo "-R (nyan | xunit | dot)"
 
-start node_modules\.bin\mocha -R dot  -g "feature B" tests\* 
+.echo "start node_modules\.bin\mocha -R dot  -g "feature B" tests\*"
+
+.echo "npm (test | test-dot)"
+start npm test 

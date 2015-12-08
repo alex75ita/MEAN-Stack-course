@@ -3,5 +3,9 @@
 		"underscore": "^1.8.3",
 		"mongodb": "~2.0",
 		"mocha": "^2.3.4"
+	},
+	"scripts": {
+		"test": "mocha tests\\*",
+		"test-dot": "mocha -R dot tests\\*"		
 	}
 }
