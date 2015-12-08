@@ -3,9 +3,10 @@ var _ = require("underscore");
 var mongodb = require("mongodb");
 
 var Person = require("./entities/person.js");
+var Item = require("./entities/item.js");
 
 
-console.log("Hello World!");
+console.log("Timesheets!");
 // run it with "node main.js" in a Command shell (in Windows)
 
 
@@ -19,9 +20,11 @@ function run(showDataCallback) {
 		}
 		
 		var person = Person("Alessandro");		
-		var doc = {"date": "2015-12-06", "name":person.name(), "type":"holiday", "hours":8};
+		var item = Item("2015-12-07", person);
+		item.kind("holiday");
+		item.hours(8);
 			
-		db.collection("records").insert(doc, 
+		db.collection("items").insert(item, 
 			function(error, result) {
 				if(error) {
 					console.error(error);
@@ -38,7 +41,7 @@ function run(showDataCallback) {
 
 function showData(db) {	
 
-	db.collection("records").find().sort({"date":-1}).limit(10).toArray(
+	db.collection("items").find().sort({"date":-1}).limit(10).toArray(
 		function(error, docs) {
 			if(error){
 				console.error(error);
