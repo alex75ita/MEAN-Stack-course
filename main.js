@@ -19,7 +19,7 @@ function run(showDataCallback) {
 		}
 		
 		var person = Person("Alessandro");		
-		var doc = {"date": "2015-12-08", "name":person.name(), "type":"holiday", "hours":8};
+		var doc = {"date": "2015-12-06", "name":person.name(), "type":"holiday", "hours":8};
 			
 		db.collection("records").insert(doc, 
 			function(error, result) {
@@ -36,29 +36,26 @@ function run(showDataCallback) {
 
 }
 
-function showData(db) {
+function showData(db) {	
+
+	db.collection("records").find({}, {sort:[["date",-1]]}).limit(10).toArray(
+		function(error, docs) {
+			if(error){
+				console.error(error);
+				process.exit(1);
+			}		
+			
+			console.log("Last records:");
+			docs.forEach(
+				function(doc){
+					console.log(JSON.stringify(doc));							
+				}
+			);
+			
+			process.exit(0);
+		}				
+	);	
 	
-	//mongodb.MongoClient.connect(uri, function(error, db){
-	
-		db.collection("records").find()/*.orderBy({"date":-1})*/.limit(5).toArray(
-			function(error, docs) {
-				if(error){
-					console.error(error);
-					process.exit(1);
-				}		
-				
-				console.log("Last records:");
-				docs.forEach(
-					function(doc){
-						console.log(JSON.stringify(doc));							
-					}
-				);
-				
-				process.exit(0);
-			}				
-		);		
-	
-	//});	
 };
 
 
