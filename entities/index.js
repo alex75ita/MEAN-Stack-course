@@ -1,2 +1,2 @@
-exports.Person = require("person.js");
-exports.item = require("item.js");
+exports.Person = require("./person.js");  // = module.exports.Person
+exports.Item = require("./item.js");

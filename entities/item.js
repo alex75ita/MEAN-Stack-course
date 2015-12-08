@@ -1,5 +1,5 @@
 function Item(date, person) {
-	_date = date;
+	_date = date || new Date();
 	_person = person;
 	_kind = "holiday";
 	hours = 0;

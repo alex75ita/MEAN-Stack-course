@@ -1,9 +1,8 @@
-/* Hello World */
+/* Timesheets */
 var _ = require("underscore");
 var mongodb = require("mongodb");
 
-var Person = require("./entities/person.js");
-var Item = require("./entities/item.js");
+var entities = require("./entities"); // = entities/index.js
 
 
 console.log("Timesheets!");
@@ -19,10 +18,12 @@ function run(showDataCallback) {
 			process.exit(1);		
 		}
 		
-		var person = Person("Alessandro");		
-		var item = Item("2015-12-07", person);
+		var person = entities.Person("Alessandro");		
+		var item = entities.Item(new Date(), person);
 		item.kind("holiday");
 		item.hours(8);
+		
+		console.log(item);
 			
 		db.collection("items").insert(item, 
 			function(error, result) {
