@@ -6,7 +6,8 @@
 	},
 	"scripts": {
 		"test": "mocha tests\\*",
-		"test-dot": "mocha -R dot tests\\*"		
+		"test-dot": "mocha -R dot tests\\*",
+		"watch": "gulp watch"
 	},
 	"devDependencies": {
 		"gulp": "^3.9.0",
