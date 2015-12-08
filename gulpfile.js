@@ -3,7 +3,7 @@ var mocha = require("gulp-mocha");
 
 gulp.task("test", function() {
 	gulp
-		.src("./tests/*.js")
+		.src("./**/*_test.js")
 		.pipe(mocha())
 		.on("error", function(error) {
 			this.emit("end");
@@ -11,6 +11,16 @@ gulp.task("test", function() {
 		;	
 });
 
+gulp.task("test-dot", function() {
+	gulp
+		.src("./**/*_test.js")
+		.pipe(mocha({reporter:"dot"}))
+		.on("error", function(error) {
+			this.emit("end");
+		})
+		;	
+});
+
 gulp.task("watch", function() {
-	gulp.watch("./**/*.js", ["test"]);
+	gulp.watch("./**/*.js", ["test-dot"]);
 });

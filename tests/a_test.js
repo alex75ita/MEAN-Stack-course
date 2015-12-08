@@ -14,7 +14,6 @@ describe("feature A", function() {
 	
 });
 
-
 describe("feature B", function() {
 	it("do_something", function (){
 		assert.equal("a", "a");		
