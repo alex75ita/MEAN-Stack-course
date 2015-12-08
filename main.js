@@ -6,32 +6,40 @@ console.log("Hello World!");
 // run it with "node main.js" in a Command shell (in Windows)
 
 
-var uri = "mongodb://localhost:27017/test";
+var uri = "mongodb://localhost:27017/timesheets";
 mongodb.MongoClient.connect(uri, function(error, db){
 	if(error){
-		console.log(error);
+		console.error(error);
 		process.exit(1);		
 	}
 	
-	db.collection("example").insert({x:1}, function(error, result){
-		if(error){
-			console.log(error);
-			process.exit(1);			
-		}	
-		
-		db.collection("example").find().toArray(function(error, docs){
+	var doc = {"date": "2015-12-08", "name":"Alessandro", "type":"holiday", "hours":8};
+	db.collection("records").insert(doc, 
+		function(error, result){
 			if(error){
-				console.log(error);
+				console.error(error);
 				process.exit(1);
-			}
+			}			
 			
-			console.log("Found docs:");
-			docs.forEach(function(doc){
-				console.log(JSON.stringify(doc));
-			});		
-			
-			process.exit(0);
-		});
-	});
+			// show data
+			db.collection("records").find()/*.orderBy({"date":-1})*/.limit(5).toArray(
+				function(error, docs){
+					if(error){
+						console.error(error);
+						process.exit(1);
+					}		
+					
+					console.log("Last records:");
+					docs.forEach(
+						function(doc){
+							console.log(JSON.stringify(doc));							
+						}
+					);
+					
+					process.exit(0);
+				}				
+			);
+		}
+	);
 		
 });
