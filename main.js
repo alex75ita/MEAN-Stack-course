@@ -2,6 +2,9 @@
 var _ = require("underscore");
 var mongodb = require("mongodb");
 
+var Person = require("./entities/person.js");
+
+
 console.log("Hello World!");
 // run it with "node main.js" in a Command shell (in Windows)
 
@@ -13,7 +16,9 @@ mongodb.MongoClient.connect(uri, function(error, db){
 		process.exit(1);		
 	}
 	
-	var doc = {"date": "2015-12-08", "name":"Alessandro", "type":"holiday", "hours":8};
+	var person = Person("Alessandro");		
+	var doc = {"date": "2015-12-08", "name":person.name(), "type":"holiday", "hours":8};
+		
 	db.collection("records").insert(doc, 
 		function(error, result){
 			if(error){
