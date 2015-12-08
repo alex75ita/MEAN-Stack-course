@@ -38,7 +38,7 @@ function run(showDataCallback) {
 
 function showData(db) {	
 
-	db.collection("records").find({}, {sort:[["date",-1]]}).limit(10).toArray(
+	db.collection("records").find().sort({"date":-1}).limit(10).toArray(
 		function(error, docs) {
 			if(error){
 				console.error(error);
