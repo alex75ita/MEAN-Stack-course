@@ -3,7 +3,8 @@
 		"underscore": "^1.8.3",
 		"mongodb": "~2.0",
 		"mocha": "^2.3.4",
-		"should": "^8.0.0" 
+		"should": "^8.0.0",
+		"mongoose": "^4.3.0"
 	},
 	"scripts": {
 		"test": "mocha **\\*_test.js",

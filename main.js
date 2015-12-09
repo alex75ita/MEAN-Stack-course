@@ -11,7 +11,14 @@ console.log("Timesheets!");
 
 var uri = "mongodb://localhost:27017/timesheets";
 
-function run(showDataCallback) {
+
+function run() {
+	
+	console.log("run");
+	
+};
+
+function insertData(showDataCallback) {
 	mongodb.MongoClient.connect(uri, function(error, db){
 		if(error) {
 			console.error(error);

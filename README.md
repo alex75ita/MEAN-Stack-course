@@ -15,6 +15,12 @@ reference: https://www.npmjs.com/package/should
 ## References
 Node.js mongodb driver docs: http://mongodb.github.io/node-mongodb-native/markdown-docs/
 
+npm modules:
+MongoDB
+Gulp
+Mocha
+Should
+Mongoose
 
 
 
