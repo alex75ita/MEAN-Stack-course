@@ -2,16 +2,20 @@ function Item(date, person) {
 	_insertDate = new Date();
 	_date = date;
 	_person = person;
-	_kind = "holiday";
+	_kinds = {holiday:"holiday", permit:"permit"};
+	_kind = _kinds.holiday;
 	_hours = 0;
+	
 
 	item = {
 		insertDate: _insertDate,
 		date: _date,
 		person: _person,
 		kind: _kind,
-		hours: _hours,
-		
+		hours: _hours,		
+	
+		kinds: _kinds,
+	
 		setDate: function (date) {
 			_date = date;
 		},
