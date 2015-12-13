@@ -24,7 +24,15 @@ Mocha
 Should
 Mongoose
 
+# Tips
 
+> To launch Gulp run "start run watch.bat".
+> If you add files Gulp doesn't recognize it, close and start again.
+> When Gulp doesn't execute tests run "run tests.bat". It will show errors.  
+
+# FAQ
+
+nothing  
 
 
 
