@@ -19,8 +19,11 @@ describe("User", function() {
 				email: "alex@gmail.com"			
 			});
 			
-			should(user).be.ok;			
+			should(user).be.ok;		
+			user.should.have.property("name");
+			user.should.have.property("email");	
 		});
+		
 		
 	});
 	
