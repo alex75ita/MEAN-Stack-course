@@ -14,18 +14,20 @@ describe("Mongoose", function() {
 	
 	describe("connect()", function() {
 		
-		beforeEach(function() {
+		beforeEach(function(done) {
 			// close connection
 			if(mongoose.connection.db) {
-				console.log("connection is open");
-				mongoose.disconnect();
-			};
+				//console.log("...close conenction");
+				mongoose.disconnect( function() { done(); });
+				//test.fail("connection is open");
+			}
+			else 
+				done();			
 		});
 		
 		it("doesn't raise error", function() {
 			mongoose.connect(mongoDBConnection, function(error) {
-				should(error).not.be.ok;
-				//console.error("Error 1: " + error);	
+				should(error).not.be.ok;	
 			});
 			
 		});
@@ -34,7 +36,6 @@ describe("Mongoose", function() {
 			var wrong_uri = "mongodb://fake:27017/a_collection";
 			mongoose.connect(wrong_uri, function(error) {
 				should(error).be.ok;
-				//console.error("Error 2: " + error);
 			});
 		});
 		
