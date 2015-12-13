@@ -11,6 +11,8 @@ Install Node.js: done, version 5.1.1
 ## Packages
 I choose to use "should" as module for assert.
 reference: https://www.npmjs.com/package/should
+Added UnitJS package.
+Docs for UnitJS packages: http://unitjs.com/guide/should-js.html
 
 ## References
 Node.js mongodb driver docs: http://mongodb.github.io/node-mongodb-native/markdown-docs/
