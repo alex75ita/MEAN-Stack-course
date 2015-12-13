@@ -1,7 +1,11 @@
 var entities = require("../entities");
 var should = require("should");
+var test = require('unit.js');
+should = test.should;
+
 
 describe("Item", function() {
+  
 	
 	it("Item() should create a valid instance", function() {
 		var item = entities.Item();		
@@ -53,7 +57,7 @@ describe("Item", function() {
 			var person = null; 
 			var item = entities.Item(date, person);
 		
-			item.date.should.be.ok();
+			item.date.should.be.ok;
 			should(date.getFullYear()).be.exactly(year);
 			should(date.getMonth()).be.exactly(month).and.be.a.Number;	
 			should(date.getDate()).be.exactly(dateNumber);	
