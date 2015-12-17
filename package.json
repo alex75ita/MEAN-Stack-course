@@ -8,12 +8,17 @@
 		"unit.js": "^2.0.0"
 	},
 	"scripts": {
-		"test": "mocha **\\*_test.js",
+		"test": "mocha **\\tests\\b_test.js",
+		"__test": "mocha **\\*_test.js ! ./node_modules/*",
+		"__test": "mocha $(find test -path '*testApp*')",
 		"test-dot": "mocha -R dot tests\\*",
 		"watch": "gulp watch"
 	},
 	"devDependencies": {
 		"gulp": "^3.9.0",
 		"gulp-mocha": "*"		
+	},
+	"comments": {
+			"scripts: test": "This one is called by \"npm test\" command."			
 	}
 }
