@@ -1,6 +1,6 @@
 var RecordKinds = {
-    holiday: "holiday", 
+    holiday: "holiday",
     permit: "permit"
 };
 
-module.export = RecordKinds;
+module.exports = RecordKinds;
