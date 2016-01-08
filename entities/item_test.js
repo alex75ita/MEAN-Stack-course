@@ -12,8 +12,8 @@ describe("Item", function() {
 		should.exists(item);
 		item.should.have.property("date");
 		item.should.have.property("person");
-	});
-	
+	});    
+
 	describe(".kind", function() {
 		it("should be set to \"holiday\" as default", function() {
 			var item = entities.Item();
