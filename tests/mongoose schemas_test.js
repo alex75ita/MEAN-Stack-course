@@ -37,45 +37,50 @@ describe("Mongoose", function() {
 
 	describe("connect()", function() {	
 				
-        it("doesn't raise error", function(done) {
+        it.skip("doesn't raise error", function(done) {
             mongoose.connect(mongoDBConnection);             
             var db = mongoose.connection;
-            db.on("error", function(error){
-                //console.log(test.assert.fail);
+            db.on("error", function(error) {
                 test.assert.fail("connection error");
                 done();           
             });            
-            db.on("open", function() { 
+            db.once("open", function() { 
                 done();                
             });  
 		});                
    
         // this one goes in timeout
-		describe("when URI is wrong ", function() {
+		describe("when URI is wrong", function() {
+            // wrong server: timeout
+            // wrong port:
             it("raise error", function(done) {
-                var wrong_uri = "mongodb://fake_server:27017/a_collection";
-                mongoose.connect(wrong_uri);
-              
+                var wrong_uri = "mongodb://server:27017/timesheets_test";
+                //wrong_uri = mongoDBConnection;
+                var options = { server: { connectTimeoutMS: 0.5*1000 } };
+                
+                mongoose.connect(wrong_uri, options);
+                              
                 var db = mongoose.connection;
-                db.on("error", function(error) { 
-                    //console.log("Error: " + error);   
+                db.on("error", function(error) {  
+                    //test.assert.fail("connection error");
                     should(error).have.property("name");
                     should(error).have.property("message");
                     done();    
-                });	
+                });	 
+                         
             });
 		});     
 		
 	});
 	
 	describe("User.save()", function() {
-		it("should save document in collection", function() {
+		it("should save document in the collection", function() {
 			
 			var name = "Alex";			
 			
 			// todo: add cleaning	
 			//deleteUser(name, function() {		
-			mongoose.connect(mongoDBConnection, function() {
+			mongoose.connect(mongoDBConnection, function(done) {
 					var user = new User({
 						name: name,
 						email: "alex_1@gmail.com"				
