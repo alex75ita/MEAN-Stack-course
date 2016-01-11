@@ -1,5 +1,6 @@
 
-require("../entities/person");
+require("../entities/person.js");
+var RecordKinds = require("../entities/recordKinds.js");
 
 function Record (params) {
     
@@ -12,7 +13,10 @@ function Record (params) {
     this.kind = params.kind = RecordKinds.holiday; // this.kinds.holiday;
     this.hours = params.hours || 8;
     
+    if(!this.date)
+        throw Error("Param \"date\" must be defined.");
+    
 };
 
 
-module.export = Record;
+module.exports = Record;
