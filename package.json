@@ -8,8 +8,8 @@
 		"unit.js": "^2.0.0"
 	},
 	"scripts": {
-		"test": "mocha **\\*_test.js",
-		"test-dot": "mocha -R dot tests\\*",
+		"test": "mocha src\\**\\*_test.js",
+		"test-dot": "mocha -R dot src\\**\\*_test.js",
 		"watch": "gulp watch"
 	},
 	"devDependencies": {
